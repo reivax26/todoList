@@ -1,6 +1,4 @@
 package com.xavier.pouyadoux.prog1.todolist;
-
-import java.util.Date;
 import java.util.UUID;
 
 public class Tareas {
@@ -8,12 +6,10 @@ public class Tareas {
 
     private UUID mId;
     private String mTitulo;
-    private Date mDate;
     private boolean mRealizada;
 
     public Tareas() {
         mId = UUID.randomUUID();
-        mDate = new Date();
     }
 
     public UUID getId() {
@@ -30,14 +26,6 @@ public class Tareas {
 
     public void setTitle(String Titulo) {
         this.mTitulo = Titulo;
-    }
-
-    public Date getDate() {
-        return mDate;
-    }
-
-    public void setDate(Date mDate) {
-        this.mDate = mDate;
     }
 
     public boolean isRealizado() {

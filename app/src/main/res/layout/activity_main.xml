@@ -10,13 +10,18 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.10"
+        android:layout_weight="0.15"
         android:background="@drawable/border"
         android:backgroundTint="#85C1E9">
 
         <TextView
             android:text="@string/Titulo_main_activity"
             style="@style/Titulo" />
+
+        <Button
+            android:id="@+id/Button_add"
+            tools:ignore="RtlHardcoded"
+            style="@style/Buttonadd" />
 
     </FrameLayout>
 

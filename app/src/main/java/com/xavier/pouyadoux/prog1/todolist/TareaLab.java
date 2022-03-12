@@ -21,7 +21,7 @@ public class TareaLab {
     private TareaLab(Context context) {
         mTareas = new ArrayList<>();
 
-        for (int i = 0; i < 160; i++) {
+        for (int i = 0; i < 2; i++) {
             Tareas tareas = new Tareas();
             tareas.setTitle("Tarea #" + i);
             tareas.setRealizado(i % 2 == 0);
