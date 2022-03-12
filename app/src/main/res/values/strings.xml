@@ -3,4 +3,7 @@
     <string name="titulo_tarea">Titulo Tarea</string>
     <string name="data_tarea">Data Tarea</string>
     <string name="Titulo_main_activity">Tareas</string>
+    <string name="pon_titulo_tarea">Pon un título a tu tarea.</string>
+    <string name="t_tulo">Título</string>
+
 </resources>

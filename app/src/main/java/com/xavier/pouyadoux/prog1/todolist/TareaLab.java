@@ -8,7 +8,7 @@ import java.util.List;
 public class TareaLab {
     private static TareaLab sTareaLab;
 
-    private List<Tareas> mTareas;
+    private List<Tarea> mTareas;
 
     public static TareaLab get (Context context) {
 
@@ -22,14 +22,14 @@ public class TareaLab {
         mTareas = new ArrayList<>();
 
         for (int i = 0; i < 2; i++) {
-            Tareas tareas = new Tareas();
-            tareas.setTitle("Tarea #" + i);
-            tareas.setRealizado(i % 2 == 0);
-            mTareas.add(tareas);
+            Tarea tarea = new Tarea();
+            tarea.setTitle("Tarea #" + i);
+            tarea.setRealizado(i % 2 == 0);
+            mTareas.add(tarea);
         }
     }
 
-    public List<Tareas> getTarea() {
+    public List<Tarea> getTarea() {
         return mTareas;
     }
 }

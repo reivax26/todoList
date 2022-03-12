@@ -1,14 +1,14 @@
 package com.xavier.pouyadoux.prog1.todolist;
 import java.util.UUID;
 
-public class Tareas {
+public class Tarea {
 
 
     private UUID mId;
     private String mTitulo;
     private boolean mRealizada;
 
-    public Tareas() {
+    public Tarea() {
         mId = UUID.randomUUID();
     }
 
