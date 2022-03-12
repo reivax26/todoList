@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         public void bind(Tarea tarea) {
             mTarea = tarea;
             mTituloTextView.setText(mTarea.getTitle());
-//            mButtonEstado.setOnClickListener(m);
+            //  mButtonEstado.setOnClickListener();
 
         }
 
