@@ -44,9 +44,6 @@ public class ListFragment extends Fragment {
 
                 View rootView = inflater.inflate(R.layout.activity_main, container, false);
                 context = rootView.getContext(); // Assign your rootView to context
-
-
-
                 Intent myIntent = new Intent(context, MainActivity.class);
                 startActivity(myIntent);
 
