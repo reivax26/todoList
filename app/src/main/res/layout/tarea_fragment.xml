@@ -15,12 +15,12 @@
         android:id="@+id/tarea_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/pon_titulo_tarea"/>
+        android:hint="@string/pon_titulo_tarea" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/add" />
 
 </LinearLayout>

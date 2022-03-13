@@ -5,5 +5,6 @@
     <string name="Titulo_main_activity">Tareas</string>
     <string name="pon_titulo_tarea">Pon un título a tu tarea.</string>
     <string name="t_tulo">Título</string>
+    <string name="add">Add</string>
 
 </resources>

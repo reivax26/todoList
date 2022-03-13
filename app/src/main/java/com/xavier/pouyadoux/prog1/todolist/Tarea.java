@@ -6,7 +6,7 @@ public class Tarea {
 
     private UUID mId;
     private String mTitulo;
-    private boolean mRealizada;
+    private Boolean mRealizada;
 
     public Tarea() {
         mId = UUID.randomUUID();
@@ -32,7 +32,7 @@ public class Tarea {
         return mRealizada;
     }
 
-    public void setRealizado(boolean mRealizada) {
+    public void setRealizado(Boolean mRealizada) {
         this.mRealizada = mRealizada;
     }
 

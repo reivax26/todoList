@@ -7,7 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +28,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * boton para añadir nueva tarea
+         */
         Button mButtonAddTarea = (Button) findViewById(R.id.Button_add);
         mButtonAddTarea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                /**
+                 * llamada fragment activity
+                 */
                 FragmentManager fm = getSupportFragmentManager();
                 Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
@@ -42,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+
         });
 
+        /**
+         * mostrar activity main recycerview
+         */
         mTareaRecyclerView = (RecyclerView) findViewById(R.id.tarea_recyclerView);
         mTareaRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -61,11 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
     // Adapter
     private class TareaAdapter extends RecyclerView.Adapter<TareaHolder> {
-
         private final List<Tarea> mTareas;
+
 
         public TareaAdapter(List<Tarea> tareas) {
             mTareas = tareas;
+
         }
 
         @NonNull
@@ -88,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class TareaHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class TareaHolder extends RecyclerView.ViewHolder{
         private Tarea mTarea;
 
         private final TextView mTituloTextView;
@@ -96,10 +108,27 @@ public class MainActivity extends AppCompatActivity {
 
         public TareaHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.lista_tareas, parent, false));
-            itemView.setOnClickListener(this);
+
 
             mTituloTextView = (TextView) itemView.findViewById(R.id.Tarea_titulo);
             mButtonEstado = (Button) itemView.findViewById(R.id.Button_estado);
+
+            /**
+             * Listener para marcar tarea realizada
+             */
+            itemView.findViewById(R.id.Button_estado).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mTarea.isRealizado()) {
+
+                        mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    } else {
+                        mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                      //  mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                    }
+                    Toast.makeText(MainActivity.this, mTarea.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
+                }
+            });
 
 
         }
@@ -107,15 +136,6 @@ public class MainActivity extends AppCompatActivity {
         public void bind(Tarea tarea) {
             mTarea = tarea;
             mTituloTextView.setText(mTarea.getTitle());
-            //  mButtonEstado.setOnClickListener();
-
-        }
-
-        @Override
-        public void onClick(View view) {
-            Toast.makeText(MainActivity.this,
-                    mTarea.getTitle() + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
         }
     }
 
