@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                 }
             }
-
 
         });
 
@@ -100,18 +98,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class TareaHolder extends RecyclerView.ViewHolder{
+    private class TareaHolder extends RecyclerView.ViewHolder {
         private Tarea mTarea;
 
         private final TextView mTituloTextView;
-        private Button mButtonEstado;
 
         public TareaHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.lista_tareas, parent, false));
-
-
             mTituloTextView = (TextView) itemView.findViewById(R.id.Tarea_titulo);
-            mButtonEstado = (Button) itemView.findViewById(R.id.Button_estado);
 
             /**
              * Listener para marcar tarea realizada
@@ -120,15 +114,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (mTarea.isRealizado()) {
-                          mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-                       // mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        mTituloTextView.setPaintFlags( mTituloTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                        mTarea.setRealizado(false);
                     } else {
                         mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
+                        mTarea.setRealizado(true);
                     }
+
                 }
             });
-
 
         }
 
