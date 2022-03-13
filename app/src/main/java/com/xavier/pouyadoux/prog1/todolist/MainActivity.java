@@ -120,13 +120,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (mTarea.isRealizado()) {
-
-                        mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                          mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                       // mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     } else {
                         mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                      //  mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+
                     }
-                    Toast.makeText(MainActivity.this, mTarea.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
                 }
             });
 
