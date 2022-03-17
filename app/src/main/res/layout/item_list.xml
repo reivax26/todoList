@@ -14,12 +14,14 @@
 
         <TextView
             android:id="@+id/Tarea_titulo"
+            android:clickable="true"
             android:layout_width="336dp"
             android:layout_height="match_parent"
             android:text="@string/titulo_tarea"
             android:textColor="@color/black"
             android:translationX="30dp"
-            android:translationY="3dp" />
+            android:translationY="3dp"
+            android:focusable="true" />
 
         <Button
             android:id="@+id/Button_estado"

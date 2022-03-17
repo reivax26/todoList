@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
 
         /**
          * mostrar activity main recycerview
@@ -96,14 +98,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+// holder
     private class TareaHolder extends RecyclerView.ViewHolder {
         private Tarea mTarea;
-
         private final TextView mTituloTextView;
 
         public TareaHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.lista_tareas, parent, false));
+            super(inflater.inflate(R.layout.item_list, parent, false));
             mTituloTextView = (TextView) itemView.findViewById(R.id.Tarea_titulo);
 
 
@@ -124,10 +125,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            /**
+             * TextView button editar tarea
+             */
+            itemView.findViewById(R.id.Tarea_titulo).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   MoreInfoAsignatura();
+
+                }
+            });
+
         }
 
         public void bind(Tarea tarea) {
             mTarea = tarea;
+
             if (tarea.isRealizado()){
                 mTituloTextView.setText(mTarea.getTitle());
                 mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -137,7 +150,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+    public void MoreInfoAsignatura(){
+        Intent intent = new Intent(this , EditarTarea.class);
+        startActivity(intent);
+    }
 
 }
 
