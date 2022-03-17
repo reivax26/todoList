@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void updateUI() {
-        TareaLab tareaLab = TareaLab.get(this);
+        TareaLab tareaLab = TareaLab.get();
         List<Tarea> tareas = tareaLab.getTarea();
 
         TareaAdapter mAdapter = new TareaAdapter(tareas);
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             super(inflater.inflate(R.layout.lista_tareas, parent, false));
             mTituloTextView = (TextView) itemView.findViewById(R.id.Tarea_titulo);
 
+
             /**
              * Listener para marcar tarea realizada
              */
@@ -127,7 +128,13 @@ public class MainActivity extends AppCompatActivity {
 
         public void bind(Tarea tarea) {
             mTarea = tarea;
-            mTituloTextView.setText(mTarea.getTitle());
+            if (tarea.isRealizado()){
+                mTituloTextView.setText(mTarea.getTitle());
+                mTituloTextView.setPaintFlags(mTituloTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            } else {
+                mTituloTextView.setText(mTarea.getTitle());
+            }
+
         }
     }
 

@@ -18,14 +18,11 @@ import java.util.List;
 
 public class ListFragment extends Fragment {
 
-    private Tarea ntarea;
-    private EditText mTitleField;
     Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ntarea = new Tarea(context);
     }
 
 
@@ -44,15 +41,21 @@ public class ListFragment extends Fragment {
 
                 View rootView = inflater.inflate(R.layout.activity_main, container, false);
                 context = rootView.getContext(); // Assign your rootView to context
+
+                EditText text = (EditText)v.findViewById(R.id.tarea_titulo);
+                String value = text.getText().toString();
+
+                Tarea tarea = new Tarea(value , false);
+
+                TareaLab tareaLab = TareaLab.get();
+                tareaLab.getTarea().add(tarea);
+
                 Intent myIntent = new Intent(context, MainActivity.class);
                 startActivity(myIntent);
-
-
+                // canviar fragment
             }
         });
 
-
-        mTitleField = (EditText) v.findViewById(R.id.tarea_titulo);
 
         return v;
     }

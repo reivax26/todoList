@@ -1,5 +1,4 @@
 package com.xavier.pouyadoux.prog1.todolist;
-import android.content.Context;
 
 import java.util.UUID;
 
@@ -11,8 +10,10 @@ public class Tarea {
     private Boolean mRealizada;
 
 
-    public Tarea(Context context) {
+    public Tarea(String titulo , Boolean realizado) {
         mId = UUID.randomUUID();
+        mTitulo = titulo;
+        mRealizada = realizado;
     }
 
     public UUID getId() {
