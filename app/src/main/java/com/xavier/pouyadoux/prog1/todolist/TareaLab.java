@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class TareaLab {
     private static TareaLab sTareaLab;
@@ -36,4 +37,8 @@ public class TareaLab {
     public List<Tarea> getTarea() {
         return mTareas;
     }
+
+//    public List<Tarea> getTareaUUID(UUID uuid){
+//        return mTareas.
+//    }
 }

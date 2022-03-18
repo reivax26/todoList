@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
             itemView.findViewById(R.id.Tarea_titulo).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   MoreInfoAsignatura();
+                   EditarTituloTarea(mTarea.getId());
 
                 }
             });
@@ -150,8 +151,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    public void MoreInfoAsignatura(){
+    public void EditarTituloTarea(UUID id){
         Intent intent = new Intent(this , EditarTarea.class);
+
+
+        intent.putExtra("UUIDTarea",id.toString());
         startActivity(intent);
     }
 
