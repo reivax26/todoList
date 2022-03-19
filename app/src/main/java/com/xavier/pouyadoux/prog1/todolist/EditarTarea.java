@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.UUID;
+
 public class EditarTarea extends AppCompatActivity {
     Bundle UUIDTareaModificar;
     int uuid;
@@ -18,12 +20,15 @@ public class EditarTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_tarea);
 
-        System.out.println("ok");
+
 
         UUIDTareaModificar = getIntent().getExtras();
-        System.out.println("f");
+
+
+
         uuid = UUIDTareaModificar.getInt("UUIDTarea");
-        System.out.println("g");
+
+        System.out.println(uuid);
 
         Button mButtonSavechanges = (Button) findViewById(R.id.button_save_Changes);
         mButtonSavechanges.setOnClickListener(new View.OnClickListener() {

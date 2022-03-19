@@ -132,8 +132,7 @@ public class MainActivity extends AppCompatActivity {
             itemView.findViewById(R.id.Tarea_titulo).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   EditarTituloTarea(mTarea.getId());
-
+                   EditarTituloTarea(getAdapterPosition());
                 }
             });
 
@@ -151,11 +150,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-    public void EditarTituloTarea(UUID id){
+    public void EditarTituloTarea(int id){
         Intent intent = new Intent(this , EditarTarea.class);
-
-
-        intent.putExtra("UUIDTarea",id.toString());
+        intent.putExtra("UUIDTarea",id);
         startActivity(intent);
     }
 
