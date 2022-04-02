@@ -1,4 +1,4 @@
-package com.xavier.pouyadoux.prog1.todolist;
+package com.xavier.pouyadoux.prog1.todolist.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.UUID;
+import com.xavier.pouyadoux.prog1.todolist.MainActivity;
+import com.xavier.pouyadoux.prog1.todolist.R;
+import com.xavier.pouyadoux.prog1.todolist.controller.TareaLab;
 
 public class EditarTarea extends AppCompatActivity {
     Bundle UUIDTareaModificar;
@@ -20,12 +22,7 @@ public class EditarTarea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_tarea);
 
-
-
         UUIDTareaModificar = getIntent().getExtras();
-
-
-
         uuid = UUIDTareaModificar.getInt("UUIDTarea");
 
         System.out.println(uuid);

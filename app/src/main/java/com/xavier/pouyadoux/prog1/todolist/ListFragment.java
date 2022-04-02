@@ -12,6 +12,9 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.xavier.pouyadoux.prog1.todolist.controller.Tarea;
+import com.xavier.pouyadoux.prog1.todolist.controller.TareaLab;
+
 public class ListFragment extends Fragment {
 
     Context context;
@@ -45,6 +48,9 @@ public class ListFragment extends Fragment {
 
                 TareaLab tareaLab = TareaLab.get();
                 tareaLab.getTarea().add(tarea);
+
+
+
 
                 Intent myIntent = new Intent(context, MainActivity.class);
                 startActivity(myIntent);

@@ -1,4 +1,4 @@
-package com.xavier.pouyadoux.prog1.todolist;
+package com.xavier.pouyadoux.prog1.todolist.controller;
 
 import java.util.UUID;
 

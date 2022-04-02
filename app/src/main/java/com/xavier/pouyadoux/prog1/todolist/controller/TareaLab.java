@@ -1,17 +1,19 @@
-package com.xavier.pouyadoux.prog1.todolist;
+package com.xavier.pouyadoux.prog1.todolist.controller;
 
-import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.xavier.pouyadoux.prog1.todolist.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-public class TareaLab {
+public class TareaLab extends AppCompatActivity {
     private static TareaLab sTareaLab;
+    private MainActivity mainActivity;
+    List<Tarea> mTareas;
 
-    private List<Tarea> mTareas;
 
-    public static TareaLab get () {
+    public static TareaLab get() {
 
         if (sTareaLab == null) {
             sTareaLab = new TareaLab();
@@ -32,13 +34,17 @@ public class TareaLab {
         mTareas.add(t4);
         Tarea t5 = new Tarea("Hacer ejercicio",false);
         mTareas.add(t5);
+
+
     }
 
     public List<Tarea> getTarea() {
+
+
         return mTareas;
     }
 
-//    public List<Tarea> getTareaUUID(UUID uuid){
-//        return mTareas.
-//    }
+
+
+
 }
